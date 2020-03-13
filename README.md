@@ -3,3 +3,5 @@ In this course, I worked primarily on the following: A Data Collector Module tha
 # Data Collector
 The module uses the Python package alpha_vantage to collect stock price timeseries data for a given Symbol, Frequency and output the data to a csv file. The image below shows how the module works. The object of class settings hold all attributes of the time series to be downloaded and the name, format and location of the output file. 
 ![Collecting Data from Alpha Vantage API](https://github.com/simrita/Simrita-STAT--359/blob/master/Data_Collector.png)
+# Data Preprocessor
+The module uses the Python packages datetime, dateparser and sklearn for reading dates in a way that mirrors human readibility, converting the dates to a specified format and imputing the missing values by a specified strategy
