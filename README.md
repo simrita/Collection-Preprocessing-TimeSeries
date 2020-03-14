@@ -19,3 +19,7 @@ The dateparser package can process datetimes written in any haphazard way, as sh
 # Time Converter
 This module takes as input a preprocessed dataset, and outputs a dataset containing the different components of the datetime 
 ![Time Converter](https://github.com/simrita/Simrita-STAT--359/blob/master/time_converter.png)
+
+#XGB Model Training
+This module uses python package xgboost to make timeseries prediction. We first create prediction features as follows:
+![create feature](https://github.com/simrita/Simrita-STAT--359/blob/master/create_features.png), and fit XGB regressor using 80% data as training and 20% data as test. Model stops training when specified number of consecutive iterations dont decrease error.
