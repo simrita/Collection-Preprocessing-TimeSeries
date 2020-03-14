@@ -11,4 +11,4 @@ The module uses the Python packages datetime, dateparser and sklearn for reading
 4. The Frequency of the timeseries data is identified by finding the "most frequent successive difference"
 5. The complete range of datetimes is constructed using the minimum datetime, the maximum datetime, and the Frequency of the datetimes
 6. A new time series dataset is constructed such that the datetime is the complete range of datetimes described above, stock prices for the datetimes present in the original dataset are copied directly from there, while for those datetimes not present in the original dataset, the stock prices for the datetimes not present in the original dataset are imputed. We find that a simple mean imputation works reasonably well most of the times. 
-![Inferring Frequency and Finding Missing Dates] (https://github.com/simrita/Simrita-STAT--359/blob/master/inferring_frequency.png)
+![Inferring Frequency and The complete range of datetimes](https://github.com/simrita/Simrita-STAT--359/blob/master/inferring_frequency.png)
