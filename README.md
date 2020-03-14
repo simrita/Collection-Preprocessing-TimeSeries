@@ -4,4 +4,11 @@ In this course, I worked primarily on the following: A Data Collector Module tha
 The module uses the Python package alpha_vantage to collect stock price timeseries data for a given Symbol, Frequency and output the data to a csv file. The image below shows how the module works. The object of class settings hold all attributes of the time series to be downloaded and the name, format and location of the output file. 
 ![Collecting Data from Alpha Vantage API](https://github.com/simrita/Simrita-STAT--359/blob/master/Data_Collector.png)
 # Data Preprocessor
-The module uses the Python packages datetime, dateparser and sklearn for reading dates in a way that mirrors human readibility, converting the dates to a specified format and imputing the missing values by a specified strategy
+The module uses the Python packages datetime, dateparser and sklearn for reading dates in a way that mirrors human readibility, converting the dates to a specified format and imputing the missing values through a specified strategy. The Data Preprocessor works as follows
+1. The raw data file is loaded into a pandas dataframe
+2. The dateparser reads the datetime and converts into the standard format of ('YYYY:MM:DD HH:MM:SS')
+3. Multiple entries corresponding to the same datetime are aggregated via mean, and the dataset is sorted by the datetimes
+4. The Frequency of the timeseries data is identified by finding the "most frequent successive difference"
+5. The complete range of datetimes is constructed using the minimum datetime, the maximum datetime, and the Frequency of the datetimes
+6. A new time series dataset is constructed such that the datetime is the complete range of datetimes described above, stock prices for the datetimes present in the original dataset are copied directly from there, while for those datetimes not present in the original dataset, the stock prices for the datetimes not present in the original dataset are imputed. We find that a simple mean imputation works reasonably well most of the times. 
+![Inferring Frequency and Finding Missing Dates] (https://github.com/simrita/Simrita-STAT--359/blob/master/inferring_frequency.png)
