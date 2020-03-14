@@ -13,7 +13,8 @@ The module uses the Python packages datetime, dateparser and sklearn for reading
 6. A new time series dataset is constructed such that the datetime is the complete range of datetimes described above, stock prices for the datetimes present in the original dataset are copied directly from there, while for those datetimes not present in the original dataset, the stock prices for the datetimes not present in the original dataset are imputed. We find that a simple mean imputation works reasonably well most of the times. 
 ![Inferring Frequency and The complete range of datetimes](https://github.com/simrita/Simrita-STAT--359/blob/master/inferring_frequency.png)
 # Human Readible Dates
-The dateparser package can process datetimes written in any haphazard way, as shown in the below image, however it has some limitations as any missing year/month/day is assigned the current system value and any missing time is assigned '00:00:00'
+The dateparser package can process datetimes written in any haphazard way, as shown in the below image, however it has some limitations as any missing year/month/day is assigned the current system value and any missing time is assigned '00:00:00'. We propose alternate ways of identifying the implicit knowns: If the first and the last  known dates are equal, then allocate the missing date; If the first and the last known dates have some parts equal, then allocate those values; If the date-time follows some frequency then fill the missing values accordingly. 
+
 ![date_parser](https://github.com/simrita/Simrita-STAT--359/blob/master/date_parser.png)
 # Time Converter
 This module takes as input a preprocessed dataset, and outputs a dataset containing the different components of the datetime 
